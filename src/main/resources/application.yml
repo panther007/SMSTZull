@@ -1,0 +1,21 @@
+server:
+  port: 2222
+spring:
+  application:
+    name: ZuulServer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+      
+zuul:
+  routes:
+    user:
+      path: /user/**
+      strip-prefix: false
+      service-id: user-service
+    car:
+      path: /car/**
+      strip-prefix: false
+      service-id: car-service
+           
